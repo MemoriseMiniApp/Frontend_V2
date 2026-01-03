@@ -1,27 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { useRawInitData, init as initSDK } from "@telegram-apps/sdk-react";
+import { init, retrieveLaunchParams } from "@telegram-apps/sdk";
 
-const App = () => {
-  const rawInitData = useRawInitData(); // получает initData (raw строку или объект)
-  const [initData, setInitData] = useState(null);
+export default function App() {
+  const [launchParams, setLaunchParams] = useState(null);
 
   useEffect(() => {
-    initSDK(); // инициализируем Telegram Mini App SDK
+    // Инициализация SDK
+    init();
 
-    if (rawInitData) {
-      setInitData(rawInitData);
-      console.log("initData:", rawInitData);
-    }
-  }, [rawInitData]);
+    // Получаем параметры запуска
+    const lp = retrieveLaunchParams();
+    console.log("launchParams:", lp);
 
-  if (!initData) return <div>Загрузка initData...</div>;
+    setLaunchParams(lp);
+  }, []);
+
+  if (!launchParams) return <div>Loading initData...</div>;
 
   return (
     <div>
-      <h1>Привет, {initData.user?.firstName || initData.user?.first_name}!</h1>
-      <pre>{JSON.stringify(initData, null, 2)}</pre>
+      <h1>Hello, {launchParams.user?.first_name || "User"}!</h1>
+      <pre>{JSON.stringify(launchParams, null, 2)}</pre>
     </div>
   );
-};
-
-export default App;
+}
