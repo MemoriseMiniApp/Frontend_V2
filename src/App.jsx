@@ -1,5 +1,5 @@
 import './App.css';
-import { useLogin } from './services/LoginPrivider';
+import { useLogin } from './services/LoginProvider';
 
 const App = () => {
 
