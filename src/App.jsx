@@ -1,20 +1,27 @@
-import './App.css';
+import { useEffect, useState } from 'react';
 import { useLogin } from './services/LoginProvider';
 
 const App = () => {
   const { login } = useLogin();
-  const jwt = login?.jwt; // безопасно, если login undefined
+  const jwt = login?.jwt;
 
-  const webApp = window?.Telegram?.WebApp;
-  webApp?.ready(); // вызываем только если webApp существует
+  const [initData, setInitData] = useState(null);
 
-  const initData = webApp?.initData; // безопасно, если webApp undefined
+  useEffect(() => {
+    const webApp = window?.Telegram?.WebApp;
+    if (!webApp) return;
+
+    webApp.ready(); // уведомляем Telegram, что WebApp готов
+
+    // initData может быть доступна сразу, но безопаснее дождаться onReady
+    setInitData(webApp.initData);
+  }, []);
 
   return (
     <div>
       <p>Hello, it`s Working, hmmm cool</p>
-      <p>{initData ?? "Init data not available"}</p> {/* fallback текст если undefined */}
-      <p>{jwt ?? "JWT not available"}</p> {/* fallback текст если undefined */}
+      <p>{initData ?? "Init data not available"}</p>
+      <p>{jwt ?? "JWT not available"}</p>
     </div>
   );
 };
