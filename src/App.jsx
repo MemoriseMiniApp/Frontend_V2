@@ -20,7 +20,7 @@ const App = () => {
   return (
     <div>
       <p>Hello, it`s Working, hmmm cool</p>
-      <p>{initData ?? "Init data not available"}</p>
+      <p>{window?.Telegram?.WebApp ?? "Init data not available"}</p>
       <p>{jwt ?? "JWT not available"}</p>
     </div>
   );
