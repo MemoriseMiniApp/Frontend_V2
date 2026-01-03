@@ -1,46 +1,28 @@
-import { useEffect, useState } from 'react';
-import { useLogin } from './services/LoginProvider';
-
-import { initMiniApp, retrieveLaunchParams } from '@tma.js/sdk';
-
+import React, { useEffect, useState } from "react";
+import { init, parseInitDataQuery } from "@telegram-apps/sdk";
 
 const App = () => {
-  const { login } = useLogin();
-  const jwt = login?.jwt;
-
-  const [user, setUser] = useState(null); // Состояние для хранения info о пользователе
-
-
-  useEffect(() => {
-    const [miniApp] = initMiniApp();
-
-    miniApp.ready().then(() => {
-      const { initDataRaw, initData } = retrieveLaunchParams();
-
-      console.log('Raw initData:', initDataRaw);
-      console.log('Parsed initData obj:', initData);
-    });
-  }, []);
-
   const [initData, setInitData] = useState(null);
 
   useEffect(() => {
-    const webApp = window?.Telegram?.WebApp;
-    if (!webApp) return;
+    // Инициализация SDK — init() возвращает объект MiniApp
+    const miniApp = init();
 
-    webApp.ready(); // уведомляем Telegram, что WebApp готов
+    miniApp.ready().then(() => {
+      // parseInitDataQuery парсит initData из URL
+      const parsed = parseInitDataQuery(window.location.search.replace("?", ""));
+      console.log("Parsed initData:", parsed);
 
-    // initData может быть доступна сразу, но безопаснее дождаться onReady
-    setInitData(webApp.initData);
+      setInitData(parsed);
+    });
   }, []);
 
-    if (!user) return <div>Загрузка данных Telegram...</div>;
-
+  if (!initData) return <div>Loading Telegram initData...</div>;
 
   return (
     <div>
-      <h1>Привет, {user.first_name}!</h1>
-      <p>Твой Telegram ID: {user.id}</p>
+      <h1>Hello, {initData.user?.first_name}!</h1>
+      <p>Your Telegram ID: {initData.user?.id}</p>
     </div>
   );
 };
