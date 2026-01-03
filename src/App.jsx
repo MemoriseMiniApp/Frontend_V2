@@ -6,6 +6,10 @@ const App = () => {
   const { login } = useLogin();
   const jwt = login.jwt;
 
+  const webApp = window.Telegram.WebApp;
+  webApp.ready();
+
+  const initData = webApp.initData;
 
   return (
     <div>
