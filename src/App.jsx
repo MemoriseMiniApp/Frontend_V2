@@ -10,6 +10,7 @@ const App = () => {
   return (
     <div>
       <p>Hello, it`s Working, hmmm cool</p>
+      <p>{ webApp.initData}</p>
       <p>{jwt}</p>
     </div>
   );
