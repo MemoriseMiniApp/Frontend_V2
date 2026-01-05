@@ -30,7 +30,6 @@ const App = () => {
             setAuthResponse({ error: err.detail || "Auth failed" });
           } else {
             const data = await res.json();
-            console.log("Auth success:", data);
             setAuthResponse(data);
           }
         } catch (error) {
