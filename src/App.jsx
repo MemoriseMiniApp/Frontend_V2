@@ -49,9 +49,9 @@ const App = () => {
 
   return (
     <div>
-      <h1>Привет, {authResponse.user?.firstName || authResponse.user?.first_name}!</h1>
+      <h1>Привет, {authResponse.user_data?.firstName || authResponse.user_data?.first_name}!</h1>
       <p>JWT токен: {authResponse.token}</p>
-      <pre>{JSON.stringify(authResponse.user, null, 2)}</pre>
+      <pre>{JSON.stringify(authResponse.user_data, null, 2)}</pre>
     </div>
   );
 };
