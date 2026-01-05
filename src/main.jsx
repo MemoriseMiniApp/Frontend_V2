@@ -1,27 +1,13 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
-import { LoginProvider } from './services/LoginProvider.jsx';
-import { init, backButton } from '@telegram-apps/sdk-react';
+import './styles/gallery.css'; // глобальные стили галереи
 
-// Инициализируем SDK
-try {
-  init();
-  // По желанию: сразу настраиваем базовые компоненты, например, кнопку "Назад"
-  if (backButton.isSupported()) {
-    backButton.mount();
-  }
-} catch (e) {
-  console.error('Ошибка при инициализации Telegram SDK:', e);
-}
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/* Важно: SDKProvider должен быть ВЫШЕ компонентов, 
-       которые используют useInitData() 
-    */}
-    <LoginProvider>
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
       <App />
-    </LoginProvider>
-  </StrictMode>,
+    </BrowserRouter>
+  </React.StrictMode>
 );
