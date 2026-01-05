@@ -8,7 +8,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: white;
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px 8px;
 }
 
 .container {
@@ -33,7 +33,7 @@ h1 {
 .album-card {
   position: relative;
   height: 280px;
-  border-radius: 20px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -78,22 +78,9 @@ h1 {
   margin-bottom: 4px;
 }
 
-.album-subtitle {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  margin-bottom: 12px;
-}
-
-.album-date {
-  display: inline-block;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
 .add-album-card {
   height: 280px;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 3px dashed gray;
   background: rgba(180, 180, 180, 0.1);
   backdrop-filter: blur(10px);
@@ -141,7 +128,7 @@ h1 {
 .detail-image {
   width: 100%;
   max-width: 800px;
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -164,7 +151,7 @@ h1 {
   margin-top: 40px;
   padding: 40px;
   background: #f8f8f8;
-  border-radius: 12px;
+  border-radius: 5px;
   width: 100%;
   max-width: 800px;
 }
@@ -201,7 +188,7 @@ h1 {
   .album-card,
   .add-album-card {
     height: 220px; /* Уменьшили высоту, чтобы лучше помещалось */
-    border-radius: 16px;
+    border-radius: 5px;
   }
 
   .album-title {
