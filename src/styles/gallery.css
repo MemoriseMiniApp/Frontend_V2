@@ -169,7 +169,6 @@ h1 {
   }
 }
 
-/* Адаптив: телефоны — ровно 2 колонки */
 @media (max-width: 768px) {
   body {
     padding: 30px 16px;
@@ -181,14 +180,14 @@ h1 {
   }
 
   .gallery-grid {
-    grid-template-columns: repeat(2, 1fr); /* Именно 2 колонки */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 10px;
   }
 
   .album-card,
   .add-album-card {
-    height: 220px; /* Уменьшили высоту, чтобы лучше помещалось */
-    border-radius: 10px;
+    height: 220px; 
+    border-radius: 13px;
   }
 
   .album-title {
