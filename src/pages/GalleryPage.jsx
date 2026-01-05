@@ -5,7 +5,6 @@ import { albums } from '../data/albums.js';
 function GalleryPage() {
   return (
     <div className="container">
-      <h1>Галерея Альбомов</h1>
       <div className="gallery-grid">
         {albums.map((album) => (
           <AlbumCard key={album.id} album={album} />
