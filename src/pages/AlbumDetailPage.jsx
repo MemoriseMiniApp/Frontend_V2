@@ -21,20 +21,23 @@ function AlbumDetailPage() {
   if (error) return <div className={styles.container}>Ошибка: {error}</div>;
   if (!album) return <div className={styles.container}>Альбом не найден</div>;
 
-  const handleUpload = async (e) => {
-    const files = Array.from(e.target.files);
-    if (!files.length) return;
 
-    setUploading(true);
-    try {
-      await uploadPhotos(id, files);
-      e.target.value = '';
-    } catch (err) {
-      alert(err.message);
-    } finally {
-      setUploading(false);
+const handleUpload = async (e) => {
+  const files = Array.from(e.target.files);
+  if (!files.length) return;
+
+  setUploading(true);
+  try {
+    for (const file of files) {
+      await uploadFileInChunks(id, file);
     }
-  };
+    e.target.value = '';
+  } catch (err) {
+    alert(err.message);
+  } finally {
+    setUploading(false);
+  }
+};
 
   return (
     <div className={styles.container}>
