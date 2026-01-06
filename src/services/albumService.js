@@ -28,7 +28,7 @@ export async function uploadPhotos(albumId, files) {
 
 const CHUNK_SIZE = 5 * 1024 * 1024; // 5 MB
 
-async function uploadFileInChunks(albumId, file) {
+export async function uploadFileInChunks(albumId, file) {
   const totalChunks = Math.ceil(file.size / CHUNK_SIZE);
 
   for (let i = 0; i < totalChunks; i++) {
