@@ -42,7 +42,7 @@ export async function uploadFileInChunks(albumId, file) {
     formData.append('index', i);
     formData.append('total', totalChunks);
 
-    const res = await fetch(`${API_BASE}/albums/${albumId}/photos/chunk`, {
+    const res = await fetch(`${API_BASE}/photos/chunk/${albumId}`, {
       method: 'POST',
       body: formData,
     });
