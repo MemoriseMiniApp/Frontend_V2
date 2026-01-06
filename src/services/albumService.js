@@ -1,5 +1,9 @@
 // src/services/albumService.js
 
+import API_CONFIG from './config'
+
+API_BASE = API_CONFIG.BASE_URL
+
 export async function getAlbumById(albumId) {
   const res = await fetch(`${API_BASE}/albums/${albumId}`);
   if (!res.ok) throw new Error('Не удалось загрузить альбом');
