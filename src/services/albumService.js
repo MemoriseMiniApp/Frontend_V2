@@ -1,6 +1,6 @@
 // src/services/albumService.js
 
-import API_BASE from './config'
+import {API_BASE} from './config'
 
 export async function getAlbumById(albumId) {
   const res = await fetch(`${API_BASE}/albums/${albumId}`);
