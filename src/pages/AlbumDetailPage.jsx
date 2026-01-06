@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAlbums } from '../context/AlbumsContext.jsx';
 import { uploadPhotos, getPhotoUrl } from '../services/albumService';
-import { useAlbumPhotos } from '../hooks/useAlbumPhotos';
+import { useAlbumPhotos } from '../context/useAlbumPhotos.js';
 import styles from '../styles/shared.module.css';
 import detailStyles from '../styles/AlbumDetailPage.module.css';
 
