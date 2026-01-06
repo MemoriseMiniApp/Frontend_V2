@@ -1,0 +1,74 @@
+.albumCard {
+  position: relative;
+  height: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.albumCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.albumCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 1;
+}
+
+.albumImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.albumInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  color: white;
+  z-index: 2;
+}
+
+.albumTitle {
+  font-size: 1.5rem; /* было 0.5rem — исправлено */
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  .albumCard {
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .albumCard {
+    height: 220px;
+    border-radius: 13px;
+  }
+
+  .albumTitle {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .albumCard {
+    height: 200px;
+  }
+
+  .albumTitle {
+    font-size: 1.2rem;
+  }
+}

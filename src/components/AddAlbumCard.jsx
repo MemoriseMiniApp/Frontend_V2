@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import styles from '../styles/AddAlbumCard.module.css';
 
 function AddAlbumCard() {
   const navigate = useNavigate();
@@ -8,8 +9,8 @@ function AddAlbumCard() {
   };
 
   return (
-    <div className="add-album-card" onClick={handleClick}>
-      <div className="add-icon">+</div>
+    <div className={styles.addAlbumCard} onClick={handleClick}>
+      <div className={styles.addIcon}>+</div>
     </div>
   );
 }

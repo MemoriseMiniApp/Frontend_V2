@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
+import styles from '../styles/shared.module.css';
 
 function CreateAlbumPage() {
   return (
-    <div className="container">
-      <Link to="/" className="back-link">← Назад к галерее</Link>
+    <div className={styles.container}>
+      <Link to="/" className={styles.backLink}>← Назад к галерее</Link>
       <h1>Создание нового альбома</h1>
       <p>Здесь будет форма для добавления альбома (расширяемо).</p>
-      {/* Пример: форма с полями title, subtitle, date, image upload и т.д. */}
     </div>
   );
 }

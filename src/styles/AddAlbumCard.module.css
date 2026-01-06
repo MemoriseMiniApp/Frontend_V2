@@ -1,0 +1,48 @@
+.addAlbumCard {
+  height: 280px;
+  border-radius: 10px;
+  border: 3px dashed gray;
+  background: rgba(180, 180, 180, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addAlbumCard:hover {
+  border-color: gray;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+.addIcon {
+  font-size: 4rem;
+  color: gray;
+  font-weight: 300;
+  user-select: none;
+}
+
+@media (max-width: 1024px) {
+  .addAlbumCard {
+    height: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .addAlbumCard {
+    height: 220px;
+    border-radius: 13px;
+  }
+
+  .addIcon {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .addAlbumCard {
+    height: 200px;
+  }
+}

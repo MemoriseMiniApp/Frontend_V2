@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+import styles from '../styles/AlbumCard.module.css';
 
-const COVER_IMAGE = 'https://i.pinimg.com/originals/ae/1a/a2/ae1aa2be0a5dfb36477efbdf0c357448.jpg?nii=t';
+const COVER_IMAGE = 'https://i.pinimg.com/originals/ae/1a/a2/ae1aa2be0a5dfb36477efbdf0c357448.jpg';
 
 function AlbumCard({ album }) {
   const navigate = useNavigate();
@@ -10,11 +11,10 @@ function AlbumCard({ album }) {
   };
 
   return (
-    <div className="album-card" onClick={handleClick}>
-      <img src={COVER_IMAGE} alt={album.name} className="album-image" />
-      <div className="album-info">
-        <div className="album-title">{album.name}</div>
-        {/* Дата в будущем */}
+    <div className={styles.albumCard} onClick={handleClick}>
+      <img src={COVER_IMAGE} alt={album.name} className={styles.albumImage} />
+      <div className={styles.albumInfo}>
+        <div className={styles.albumTitle}>{album.name}</div>
       </div>
     </div>
   );
